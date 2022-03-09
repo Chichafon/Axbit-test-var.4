@@ -18,6 +18,8 @@ class ChooseArtistVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    //MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,7 +48,6 @@ extension ChooseArtistVC: UITableViewDataSource, UITableViewDelegate {
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MusicListVC") as? MusicListVC else { return }
         vc.urlName = data?[indexPath.row]
 
-//        present(vc, animated: true, completion: nil)
-        self.navigationController?.pushViewController(MusicListVC(), animated: true)
+        present(vc, animated: true, completion: nil)
     }
 }
