@@ -46,7 +46,6 @@ extension ChooseArtistVC: UITableViewDataSource, UITableViewDelegate {
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MusicListVC") as? MusicListVC else { return }
         vc.urlName = data?[indexPath.row]
 
-//        present(vc, animated: true, completion: nil)
-        self.navigationController?.pushViewController(MusicListVC(), animated: true)
+        present(vc, animated: true, completion: nil)
     }
 }
