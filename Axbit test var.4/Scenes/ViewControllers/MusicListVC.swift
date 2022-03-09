@@ -11,8 +11,9 @@ class MusicListVC: UIViewController {
 
     //MARK: - Properties
 
-    var urlString: String?
-    var randomData: [String]? = ["one", "two"]
+    let networkDataFetcher = NetworkDataFeature()
+    var artistMusicList: DataModel? = nil
+    var urlName: String?
 
     //MARK: - Outlets
 
@@ -21,7 +22,15 @@ class MusicListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let urlString = "https://itunes.apple.com/search?term=\(urlName ?? "1")&media=music&limit=15"
+
+        // Call method fetchData for download data
+
+        networkDataFetcher.fetchData(urlString: urlString) { (musicList) in
+            guard let artistMusicList = musicList else { return }
+            self.artistMusicList = artistMusicList
+            self.musicListForPickedArtist.reloadData()
+        }
     }
 }
 
@@ -30,12 +39,17 @@ class MusicListVC: UIViewController {
 extension MusicListVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return (artistMusicList?.resultCount) ?? 10
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let musicListCell = tableView.dequeueReusableCell(withIdentifier: "MusicListCell", for: indexPath) as! MusicListCell
-        musicListCell.label.text = randomData?[indexPath.row]
+        let musicListCell = musicListForPickedArtist.dequeueReusableCell(withIdentifier: "MusicListCell",
+                                                                         for: indexPath) as! MusicListCell
+        let trackName = artistMusicList?.results[indexPath.row]
+        let trackImage = artistMusicList?.results[indexPath.row]
+
+        musicListCell.label.text = trackName?.trackName ?? "nil"
+        musicListCell.musicCellImage.loadFrom(URLAddress: trackImage?.artworkUrl100 ?? "gear")
 
         return musicListCell
     }

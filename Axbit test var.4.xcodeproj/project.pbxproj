@@ -17,6 +17,9 @@
 		82311E4127D87363000F5523 /* MusicListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E4027D87363000F5523 /* MusicListVC.swift */; };
 		82311E4427D876A5000F5523 /* ChooseArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E4327D876A5000F5523 /* ChooseArtistCell.swift */; };
 		82311E4627D876B7000F5523 /* MusicListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E4527D876B7000F5523 /* MusicListCell.swift */; };
+		82311E4D27D88957000F5523 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E4C27D88957000F5523 /* DataModel.swift */; };
+		82311E4F27D88995000F5523 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E4E27D88995000F5523 /* NetworkService.swift */; };
+		82311E5127D889BA000F5523 /* NetworkDataFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82311E5027D889BA000F5523 /* NetworkDataFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		82311E4027D87363000F5523 /* MusicListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListVC.swift; sourceTree = "<group>"; };
 		82311E4327D876A5000F5523 /* ChooseArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseArtistCell.swift; sourceTree = "<group>"; };
 		82311E4527D876B7000F5523 /* MusicListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListCell.swift; sourceTree = "<group>"; };
+		82311E4C27D88957000F5523 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		82311E4E27D88995000F5523 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		82311E5027D889BA000F5523 /* NetworkDataFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +99,10 @@
 		82311E3A27D86EE3000F5523 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				82311E4B27D8893F000F5523 /* Models */,
+				82311E3C27D86F38000F5523 /* ViewControllers */,
 				82311E4227D87684000F5523 /* Cells */,
 				82311E3D27D86F45000F5523 /* Storyboard */,
-				82311E3C27D86F38000F5523 /* ViewControllers */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -103,6 +110,8 @@
 		82311E3B27D86EEA000F5523 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				82311E4E27D88995000F5523 /* NetworkService.swift */,
+				82311E5027D889BA000F5523 /* NetworkDataFeature.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -133,6 +142,14 @@
 				82311E4527D876B7000F5523 /* MusicListCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		82311E4B27D8893F000F5523 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				82311E4C27D88957000F5523 /* DataModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +227,10 @@
 				82311E4127D87363000F5523 /* MusicListVC.swift in Sources */,
 				82311E4627D876B7000F5523 /* MusicListCell.swift in Sources */,
 				82311E3F27D87346000F5523 /* ChooseArtistVC.swift in Sources */,
+				82311E4F27D88995000F5523 /* NetworkService.swift in Sources */,
 				82311E4427D876A5000F5523 /* ChooseArtistCell.swift in Sources */,
+				82311E4D27D88957000F5523 /* DataModel.swift in Sources */,
+				82311E5127D889BA000F5523 /* NetworkDataFeature.swift in Sources */,
 				82311E2527D86D7E000F5523 /* AppDelegate.swift in Sources */,
 				82311E2727D86D7E000F5523 /* SceneDelegate.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ class ChooseArtistVC: UIViewController {
 
     //MARK: - Properties
 
-    var data: [String]? = ["one", "two", "three"]
+    var data: [String]?
     var chooseArtistURLString: String?
 
     //MARK: - Outlets
@@ -21,6 +21,7 @@ class ChooseArtistVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        data = WelcomeVC.names
     }
 }
 
@@ -28,19 +29,24 @@ class ChooseArtistVC: UIViewController {
 
 extension ChooseArtistVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return data?.count ?? 3
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseArtistCell", for: indexPath) as? ChooseArtistCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChooseArtistCell",
+                                                       for: indexPath) as? ChooseArtistCell else { return UITableViewCell() }
         cell.label.text = data?[indexPath.row]
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "MusicListVC") as? MusicListVC else { return }
-        present(vc, animated: true, completion: nil)
+        vc.urlName = data?[indexPath.row]
+
+//        present(vc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(MusicListVC(), animated: true)
     }
 }
