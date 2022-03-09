@@ -24,6 +24,13 @@ class ChooseArtistVC: UIViewController {
         super.viewDidLoad()
 
         data = WelcomeVC.names
+        configureItems()
+    }
+
+    private func configureItems() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                            target: self,
+                                                            action: nil)
     }
 }
 

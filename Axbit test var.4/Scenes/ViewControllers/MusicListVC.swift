@@ -14,6 +14,14 @@ class MusicListVC: UIViewController {
     let networkDataFetcher = NetworkDataFeature()
     var artistMusicList: DataModel? = nil
     var urlName: String?
+    var button: UIButton = {
+        let button = UIButton(frame: CGRect(x: -40, y: -20, width: 200, height: 50))
+        button.setTitle("Назад", for: .normal)
+        button.setTitleColor(.systemRed, for: .normal)
+        button.addTarget(self, action: #selector(didTabButton), for: .touchUpInside)
+
+        return button
+    }()
 
     //MARK: - Outlets
 
@@ -22,6 +30,7 @@ class MusicListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.addSubview(button)
         let urlString = "https://itunes.apple.com/search?term=\(urlName ?? "1")&media=music&limit=15"
 
         // Call method fetchData for download data
@@ -31,6 +40,11 @@ class MusicListVC: UIViewController {
             self.artistMusicList = artistMusicList
             self.musicListForPickedArtist.reloadData()
         }
+    }
+
+    //MARK: - Objc functions
+    @objc func didTabButton() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
